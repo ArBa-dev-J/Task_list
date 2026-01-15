@@ -12,7 +12,7 @@ function Task({ task, fetchData }) {
                 method: "DELETE",
             };
             const response = await fetch(
-                "http://localhost:3000/tasks" + id,
+                "http://localhost:3000/tasks/" + id,
                 requestOptions
             );
             if (response.ok) {
@@ -48,7 +48,7 @@ function Task({ task, fetchData }) {
                 <button type="button" className=" block font-bold text-gray-700 bg-gray-200 rounded-[5px] pl-2 pr-2">To do</button>
                 <div className="border p-5 rounded-[20px]" />
                 <div>
-                    <button className="pr-4"><img src={editIcon}/></button>
+                    <button className="pr-4"><img src={editIcon} /></button>
                     <button onClick={() => deleteData(task.id)}><img src={deleteIcon} /></button>
                 </div>
             </div>
