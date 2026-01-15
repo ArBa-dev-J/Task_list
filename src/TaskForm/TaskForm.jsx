@@ -2,7 +2,7 @@ import x from "../assets/close.png";
 
 function TaskForm() {
     return (
-        <><section className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-40 rounded-[20px]">
+        <><section className="bg-white p-40 rounded-[20px]">
             <div className="flex  flex-row-reverse justify-between w-[90%] relative bottom-[160px]">
                 <button type="button"><img src={x} alt="x" /></button>
                 <h1>Add task</h1>
