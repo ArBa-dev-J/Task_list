@@ -1,42 +1,42 @@
 {
   "tasks": [
     {
-      "id": "task-001",
+      "id": "1",
       "title": "Go to gym",
       "priority": "High",
       "status": "To Do",
       "progress": 0
     },
     {
-      "id": "task-002",
+      "id": "2",
       "title": "Read a book",
       "priority": "Low",
       "status": "Done",
       "progress": 100
     },
     {
-      "id": "task-003",
+      "id": "3",
       "title": "Go to market",
       "priority": "Medium",
       "status": "In Progress",
       "progress": 50
     },
     {
-      "id": "task-004",
+      "id": "4",
       "title": "Restart learning Solidworks",
       "priority": "High",
       "status": "To Do",
       "progress": 0
     },
     {
-      "id": "task-005",
+      "id": "5",
       "title": "Change slider to scroll",
       "priority": "High",
       "status": "Done",
       "progress": 100
     },
     {
-      "id": "task-006",
+      "id": "6",
       "title": "To publish the article",
       "priority": "Medium",
       "status": "In Progress",

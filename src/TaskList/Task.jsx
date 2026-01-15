@@ -12,7 +12,7 @@ function Task({ task, fetchData }) {
                 method: "DELETE",
             };
             const response = await fetch(
-                "http://localhost:3000/tasks",
+                "http://localhost:3000/tasks" + id,
                 requestOptions
             );
             if (response.ok) {
@@ -25,7 +25,6 @@ function Task({ task, fetchData }) {
             alert(error.message);
         }
     }
-
 
     // COLOR BASED ON PRIO 
     const getPriorityColor = () => {

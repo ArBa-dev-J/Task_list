@@ -22,15 +22,12 @@ function TaskList() {
         fetchData();
     }, []);
 
-
-
     return (
         <>
             <div>{error}</div>
             {task.map((task) => (
-                <Task task={task} fetchData={fetchData()} key={task.id} />
+                <Task task={task} fetchData={fetchData} key={task.id} />
             ))}
-
         </>
     );
 }
