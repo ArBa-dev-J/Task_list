@@ -2,7 +2,7 @@ import Task from "./Task";
 import { useEffect, useState } from "react";
 
 function TaskList() {
-    const [skill, setSKill] = useState([]);
+    const [task, setTask] = useState([]);
     const [error, setError] = useState("");
 
     const fetchData = async () => {
@@ -12,7 +12,7 @@ function TaskList() {
                 throw new Error("Error! Failed to fetch");
             }
             const results = await response.json();
-            setSKill(results);
+            setTask(results);
         } catch (error) {
             setError(error.message);
         }
@@ -27,8 +27,8 @@ function TaskList() {
     return (
         <>
             <div>{error}</div>
-            {skill.map((skill) => (
-                <Task skill={skill} fetchData={fetchData()} key={skill.id} />
+            {task.map((task) => (
+                <Task task={task} fetchData={fetchData()} key={task.id} />
             ))}
 
         </>

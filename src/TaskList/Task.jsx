@@ -2,35 +2,55 @@ import deleteIcon from "../assets/delete.png"
 import editIcon from "../assets/notes.png";
 
 
-function Task({ skill, fetchData }) {
+function Task({ task, fetchData }) {
 
-      const getPriorityColor = () => {
-        if (skill.priority === "Low") return "green";
-        if (skill.priority === "Medium") return "orange";
-        if (skill.priority === "High") return "red";
+    //DELETE TASK
+
+    const deleteData = async (id) => {
+        try {
+            const requestOptions = {
+                method: "DELETE",
+            };
+            const response = await fetch(
+                "http://localhost:3000/tasks",
+                requestOptions
+            );
+            if (response.ok) {
+                alert("Data was successfuly deleted");
+                fetchData();
+            } else {
+                throw new Error("Deletion attempt was unsuccessful");
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+
+    // COLOR BASED ON PRIO 
+    const getPriorityColor = () => {
+        if (task.priority === "Low") return "green";
+        if (task.priority === "Medium") return "orange";
+        if (task.priority === "High") return "red";
         return "gray";
     };
-    
+
     return (
         <>
-            <div className="flex justify-between items-center w-[45%]  border border-gray-500 rounded-[20px] p-5">
+            <div className="flex justify-between items-center m-2 w-[45%]  border border-gray-500 rounded-[20px] p-5">
                 <div>
                     <p className="text-gray-700">Task</p>
-                    <p className="font-bold text-gray-700 w-[150px]">{skill.title}</p>
+                    <p className="font-bold text-gray-700 w-[150px]">{task.title}</p>
                 </div>
                 <div>
                     <p className="text-gray-700">Priority</p>
-                    <p style={{ color: getPriorityColor()}} className="font-bold">{skill.priority}</p>
+                    <p style={{ color: getPriorityColor() }} className="font-bold">{task.priority}</p>
                 </div>
+                <button type="button" className=" block font-bold text-gray-700 bg-gray-200 rounded-[5px] pl-2 pr-2">To do</button>
+                <div className="border p-5 rounded-[20px]" />
                 <div>
-                    <button type="button" className="font-bold text-gray-700 bg-gray-200 rounded-[5px] pl-2 pr-2">To do</button>
-                </div>
-                <div>
-                    <div className="border p-5 rounded-[20px]" />
-                </div>
-                <div>
-                    <button className="pr-4"><img src={editIcon} className="" /></button>
-                    <button><img src={deleteIcon} /></button>
+                    <button className="pr-4"><img src={editIcon}/></button>
+                    <button onClick={() => deleteData(task.id)}><img src={deleteIcon} /></button>
                 </div>
             </div>
         </>
