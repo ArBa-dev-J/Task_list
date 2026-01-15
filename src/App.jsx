@@ -1,9 +1,11 @@
-import Task
- from "./TaskList/Task";
+import Header from "./Header/Header";
+import TaskSection from "./TaskList/TaskSection";
+
 function App() {
   return (
     <>
-    <Task/>
+      <Header />
+      <TaskSection/>
     </>
   );
 }
