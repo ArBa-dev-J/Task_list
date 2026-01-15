@@ -1,9 +1,17 @@
+import { useState } from "react";
+import TaskForm from "../TaskForm/TaskForm";
+
 function Header() {
+const [showForm, setShowForm] = useState(false);
+const onClick = () => setShowForm(true);
+
+
     return (
         <header className="flex justify-around items-center mt-3">
             <div><h1 className="font-bold text-[3rem]">Task List</h1></div>
             <div>
-                <button type="button" className=" p-3 pr-5 pl-5 bg-purple-900 text-white rounded-[10px]">+ Add Task</button>
+                <button type="button" onClick={onClick} className=" p-3 pr-5 pl-5 bg-purple-900 text-white rounded-[10px]">+ Add Task</button>
+                {showForm ? <TaskForm /> : null}
             </div>
         </header>
     );

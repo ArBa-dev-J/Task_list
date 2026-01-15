@@ -6,7 +6,6 @@ function TaskSection() {
             <section className="flex flex-col items-center mt-20">
                 <TaskList />
             </section>
-
         </>
     );
 }

@@ -1,11 +1,3 @@
 {
-  "tasks": [
-    {
-      "id": "6",
-      "title": "To publish the article",
-      "priority": "Medium",
-      "status": "In Progress",
-      "progress": 50
-    }
-  ]
+  "tasks": []
 }

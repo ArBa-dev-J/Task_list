@@ -39,7 +39,7 @@ function Task({ task, fetchData }) {
             <div className="flex justify-between items-center m-2 w-[45%]  border border-gray-500 rounded-[20px] p-5">
                 <div>
                     <p className="text-gray-700">Task</p>
-                    <p className="font-bold text-gray-700 w-[150px]">{task.title}</p>
+                    <p className="font-bold text-gray-700 w-37.5">{task.title}</p>
                 </div>
                 <div>
                     <p className="text-gray-700">Priority</p>
