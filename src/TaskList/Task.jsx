@@ -1,7 +1,6 @@
 import deleteIcon from "../assets/delete.png"
 import editIcon from "../assets/notes.png";
 
-
 function Task({ task, fetchData }) {
 
     //DELETE TASK
@@ -16,7 +15,6 @@ function Task({ task, fetchData }) {
                 requestOptions
             );
             if (response.ok) {
-                alert("Data was successfuly deleted");
                 fetchData();
             } else {
                 throw new Error("Deletion attempt was unsuccessful");

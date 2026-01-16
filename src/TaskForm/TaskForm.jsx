@@ -1,15 +1,28 @@
+import { useState } from "react";
 import x from "../assets/close.png";
 import { useForm } from "react-hook-form";
 
 function TaskForm({ exitClick }) {
-  const {
-    setValue,
-    register,
-    handleSubmit,
-  } = useForm({
+  const { setValue, register, handleSubmit } = useForm({
     defaultValues: { isDone: "no" },
   });
 
+  //USESTATE FOR PRIORITY BUTTONS WHEN CLICKED
+  const [red, setRed] = useState("");
+  const [orange, setOrange] = useState("");
+  const [green, setGreen] = useState("");
+
+  const clickRed = () => {
+    setRed("red");
+  };
+
+  const clickOrange = () => {
+    setOrange("orange");
+  };
+
+  const clickGreen = () => {
+    setGreen("green");
+  };
 
   // SEND DATA TO JSON
   const onSubmit = async (data) => {
@@ -33,7 +46,6 @@ function TaskForm({ exitClick }) {
     }
   };
 
-  
   return (
     <>
       <section className="bg-white p-40 w-2xl m-auto rounded-[20px]">
@@ -65,8 +77,9 @@ function TaskForm({ exitClick }) {
               <div>
                 <button
                   type="button"
-                  onClick={() => setValue("priority", "High")}
-                  className="border"
+                  onClick={() => setValue("priority", "High", clickRed())}
+                  className="border  border-red-600 pl-5 pr-5 pb-2 pt-2"
+                  style={{backgroundColor: red}}
                 >
                   High
                 </button>
@@ -75,9 +88,10 @@ function TaskForm({ exitClick }) {
                 <button
                   type="button"
                   onClick={() =>
-                    setValue("priority", "Medium", { required: true })
+                    setValue("priority", "Medium", clickOrange())
                   }
-                  className="border"
+                  className="border border-orange-600 pl-5 pr-5 pb-2 pt-2"
+                  style={{backgroundColor: orange}}
                 >
                   Medium
                 </button>
@@ -86,9 +100,10 @@ function TaskForm({ exitClick }) {
                 <button
                   type="button"
                   onClick={() =>
-                    setValue("priority", "Low", { required: true })
+                    setValue("priority", "Low", clickGreen())
                   }
-                  className="border"
+                  className="border border-green-500 pl-5 pr-5 pb-2 pt-2"
+                  style={{backgroundColor: green}}
                 >
                   Low
                 </button>
