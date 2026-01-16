@@ -14,14 +14,20 @@ function TaskForm({ exitClick }) {
 
   const clickRed = () => {
     setRed("red");
+    setOrange("");
+    setGreen("");
   };
 
   const clickOrange = () => {
     setOrange("orange");
+    setGreen("");
+    setRed("");
   };
 
   const clickGreen = () => {
     setGreen("green");
+    setOrange("");
+    setRed("");
   };
 
   // SEND DATA TO JSON
@@ -110,8 +116,8 @@ function TaskForm({ exitClick }) {
               </div>
             </div>
           </div>
-          <div className="flex justify-end relative bottom-[-120px]">
-            <input type="submit" value="Add" className="border" />
+          <div className="flex justify-end relative bottom-[-120px] ">
+            <input type="submit" value="Add" className="border border-violet-500 bg-violet-500 pl-5 pr-5 pb-2 pt-2 " />
           </div>
         </form>
       </section>
