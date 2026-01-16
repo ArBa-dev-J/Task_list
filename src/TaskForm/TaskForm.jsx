@@ -63,7 +63,7 @@ function TaskForm({ exitClick }) {
 
   return (
     <>
-      <section className="bg-white p-40 w-2xl m-auto rounded-[20px]">
+      <section className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-40 w-2xl m-auto rounded-[20px]">
         <div className="flex  flex-row-reverse justify-around relative bottom-35">
           <button type="button" onClick={exitClick}>
             <img src={x} alt="x" className="relative left-35" />
