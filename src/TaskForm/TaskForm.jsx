@@ -1,16 +1,56 @@
 import x from "../assets/close.png";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
-function TaskForm() {
+function TaskForm({ exitClick }) {
+    const {
+        setValue,
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        defaultValues: { isDone: "no" },
+    });
+
+    //FOR DISABLING A SUBMIT BUTTON
+    const [] = useState();
+
+    // DATA COLLECTION
+    const onSubmit = (data) => {
+        console.log(data);
+    }
+
     return (
-        <><section className="bg-white p-40 rounded-[20px]">
-            <div className="flex  flex-row-reverse justify-between w-[90%] relative bottom-[160px]">
-                <button type="button"><img src={x} alt="x" /></button>
-                <h1>Add task</h1>
+        <><section className="bg-white p-40 w-2xl m-auto rounded-[20px]">
+            <div className="flex  flex-row-reverse justify-around relative bottom-35">
+                <button type="button" onClick={exitClick}><img src={x} alt="x" className="relative left-35" /></button>
+                <h1 className="relative right-35 font-bold text-[2rem]">Add task</h1>
             </div>
-            <form>
-                <div className="flex flex-col">
-                <label for="fname">Add task</label>
-                <input type="text" className="border" />
+            <form className="flex flex-col content-center" onSubmit={handleSubmit(onSubmit)}>
+                <div className="flex flex-col items-start relative right-22.5 bottom-22.5">
+                    <label className="font-bold text-gray-600 relative bottom-1.25">Task</label>
+                    <input
+                        type="text"
+                        className=" border rounded-[5px] pr-70 pt-2.5 pb-2.5"
+                        {...register("title", { required: true })}
+                    />
+                </div>
+                <div className="relative right-22.5">
+                    <label className="font-bold text-gray-600">Priority</label>
+                    <div className="flex flex-row justify-between pt-2">
+                        <div>
+                            <button type="button" onClick={() => setValue("priority", "High")} className="border" >High</button>
+                        </div>
+                        <div>
+                            <button type="button" onClick={() => setValue("priority", "Medium")} className="border" >Medium</button>
+                        </div>
+                        <div>
+                            <button type="button" onClick={() => setValue("priority", "Low")} className="border">Low</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex justify-end relative bottom-[-120px]">
+                    <input type="submit" value="Add" className="border" />
                 </div>
             </form>
         </section>
