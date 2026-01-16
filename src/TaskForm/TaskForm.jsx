@@ -30,6 +30,13 @@ function TaskForm({ exitClick }) {
     setRed("");
   };
 
+  //RELOAD PAGE AFTER DATA WAS SENT (NOT THE BEST SOLIUTION) 
+  // I TRIED TO USE USEEFFECT FETCHDATA() BUT COULD NOT MANAGE TO IMPORT
+
+  function refreshPage() {
+    window.location.reload(true);
+  }
+
   // SEND DATA TO JSON
   const onSubmit = async (data) => {
     try {
@@ -43,7 +50,9 @@ function TaskForm({ exitClick }) {
         requestOptions
       );
       if (response.ok) {
-        alert("data was sent");
+        console.log("data was sent");
+        exitClick();
+        refreshPage();
       } else {
         throw new Error("error");
       }
@@ -84,8 +93,8 @@ function TaskForm({ exitClick }) {
                 <button
                   type="button"
                   onClick={() => setValue("priority", "High", clickRed())}
-                  className="border  border-red-600 pl-5 pr-5 pb-2 pt-2"
-                  style={{backgroundColor: red}}
+                  className="border rounded-[5px]  border-red-600 pl-5 pr-5 pb-2 pt-2"
+                  style={{ backgroundColor: red }}
                 >
                   High
                 </button>
@@ -93,11 +102,9 @@ function TaskForm({ exitClick }) {
               <div>
                 <button
                   type="button"
-                  onClick={() =>
-                    setValue("priority", "Medium", clickOrange())
-                  }
-                  className="border border-orange-600 pl-5 pr-5 pb-2 pt-2"
-                  style={{backgroundColor: orange}}
+                  onClick={() => setValue("priority", "Medium", clickOrange())}
+                  className="border rounded-[5px] border-orange-600 pl-5 pr-5 pb-2 pt-2"
+                  style={{ backgroundColor: orange }}
                 >
                   Medium
                 </button>
@@ -105,11 +112,9 @@ function TaskForm({ exitClick }) {
               <div>
                 <button
                   type="button"
-                  onClick={() =>
-                    setValue("priority", "Low", clickGreen())
-                  }
-                  className="border border-green-500 pl-5 pr-5 pb-2 pt-2"
-                  style={{backgroundColor: green}}
+                  onClick={() => setValue("priority", "Low", clickGreen())}
+                  className="border rounded-[5px] border-green-500 pl-5 pr-5 pb-2 pt-2"
+                  style={{ backgroundColor: green }}
                 >
                   Low
                 </button>
@@ -117,7 +122,11 @@ function TaskForm({ exitClick }) {
             </div>
           </div>
           <div className="flex justify-end relative bottom-[-120px] ">
-            <input type="submit" value="Add" className="border border-violet-500 bg-violet-500 pl-5 pr-5 pb-2 pt-2 " />
+            <input
+              type="submit"
+              value="Add"
+              className="border rounded-[5px] border-violet-500 bg-violet-500 pl-5 pr-5 pb-2 pt-2 "
+            />
           </div>
         </form>
       </section>
