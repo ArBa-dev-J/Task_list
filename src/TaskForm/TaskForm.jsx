@@ -1,6 +1,5 @@
 import x from "../assets/close.png";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 
 function TaskForm({ exitClick }) {
     const {
@@ -10,10 +9,9 @@ function TaskForm({ exitClick }) {
         formState: { errors },
     } = useForm({
         defaultValues: { isDone: "no" },
+        mode: "onChange",
     });
 
-    //FOR DISABLING A SUBMIT BUTTON
-    const [] = useState();
 
     // DATA COLLECTION
     const onSubmit = (data) => {
@@ -31,9 +29,12 @@ function TaskForm({ exitClick }) {
                     <label className="font-bold text-gray-600 relative bottom-1.25">Task</label>
                     <input
                         type="text"
+                        id="task"
+                        name="task"
                         className=" border rounded-[5px] pr-70 pt-2.5 pb-2.5"
                         {...register("title", { required: true })}
                     />
+                    {errors.task}
                 </div>
                 <div className="relative right-22.5">
                     <label className="font-bold text-gray-600">Priority</label>
@@ -50,7 +51,7 @@ function TaskForm({ exitClick }) {
                     </div>
                 </div>
                 <div className="flex justify-end relative bottom-[-120px]">
-                    <input type="submit" value="Add" className="border" />
+                    <input type="submit" value="Add" disabled={!errors} className="border" />
                 </div>
             </form>
         </section>
