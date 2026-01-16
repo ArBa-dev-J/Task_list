@@ -8,8 +8,9 @@ function TaskForm({ exitClick }) {
         handleSubmit,
         formState: { errors },
     } = useForm({
-        defaultValues: { isDone: "no" },
-        mode: "onChange",
+        defaultValues: {
+            isDone: "no",
+        },
     });
 
 
@@ -40,13 +41,13 @@ function TaskForm({ exitClick }) {
                     <label className="font-bold text-gray-600">Priority</label>
                     <div className="flex flex-row justify-between pt-2">
                         <div>
-                            <button type="button" onClick={() => setValue("priority", "High")} className="border" >High</button>
+                            <button id="high" name="high" type="button" onClick={() => setValue("priority", "High")} className="border" >High</button>
                         </div>
                         <div>
-                            <button type="button" onClick={() => setValue("priority", "Medium")} className="border" >Medium</button>
+                            <button id="medium" name="medium" type="button" onClick={() => setValue("priority", "Medium")} className="border" >Medium</button>
                         </div>
                         <div>
-                            <button type="button" onClick={() => setValue("priority", "Low")} className="border">Low</button>
+                            <button id="low" name="low" type="button" onClick={() => setValue("priority", "Low")} className="border">Low</button>
                         </div>
                     </div>
                 </div>
